@@ -1,0 +1,229 @@
+@charset "utf-8";
+/* 구글폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+/* reset */
+* {margin: 0;padding: 0; box-sizing: border-box;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+/* 영어폰트 */
+.en {font-family: 'Etoile';}
+.en2 {font-family: 'Montserrat', sans-serif;}
+
+/* layout */
+body {font-family: 'Noto Sans', sans-serif; letter-spacing: -1px; cursor: url(../img/cursor.png),auto;}
+.wrap {background: #1C1C1C; margin: 0 auto; overflow: hidden; color: #fff; font-weight: 300; font-size: 16px;}
+
+/* 공통 title style */
+.tit {display: flex; position: relative;}
+.tit:before {content: ''; position: absolute; left:25%; bottom: 0; width: 184px; height: 1px; background: #fff;}
+.tit h3 {font-size: 90px; font-weight: 300; margin-right: 259px; line-height: 0.9; }
+.tit h3 span {display: block; font-size: 90px; font-style: italic; padding-left: 140px; box-sizing: border-box;}
+.tit .subTxt {position: relative;}
+.tit .subTxt p:nth-child(1) {font-size: 100px; color: #F56408; font-weight: 600; margin-bottom: 5px;} 
+.tit .subTxt p:nth-child(2) {font-size: 17px;}
+.tit .subTxt span {font-size: 65px; font-weight: 600; position: absolute; top: -14%; left: -6%;}
+
+section.motion .tit h3 {animation-name: textAni; animation-duration: 1s;}
+section.motion .tit .subTxt {animation-name: textAni2; animation-duration: 1.5s;}
+
+@keyframes textAni {
+  0% {opacity: 0;}
+  30% {opacity: 0; transform: translate3d(0,-90px,0) skewY(-10deg); transform-origin:top left;}
+}
+
+@keyframes textAni2 {
+  0% {opacity: 0;}
+  30% {opacity: 0;}
+}
+
+
+
+/* header */
+header {width: 100%}
+header .inner {width: 1600px; display: flex; justify-content: space-between; height: 120px;  margin: 0 auto; padding: 36px 0; box-sizing: border-box;  align-items: center; }
+header .inner .logo_house {width: 86px; height: 49px; display: block; }
+header .inner .logo_house img {width: 100%;}
+header .inner .gnb {font-size: 20px; font-weight: 400;}
+header .inner .gnb ul {display: flex; justify-content: space-between;}
+header .inner .gnb ul li {margin-right: 60px;} 
+header .inner .gnb ul li:last-child {margin-right: 0;}
+
+/* gnb hover효과 */
+header .inner .gnb ul li a .char {display: inline-block; position: relative; color: transparent; overflow: hidden;}
+header .gnb ul li a .char::before, header .gnb ul li a .char::after {position: absolute; left: 0; top: 0;  color: #fff; content: attr(data-char); transition: transform 0.35s; transition-delay: calc(30ms * var(--char-index));}
+header .gnb ul li a .char::before {transform: translateY(100%);}
+
+/* hover */
+header .gnb ul li a:hover .char::before {transform: translateY(0%); color: #F56408; opacity: 0.6;}
+header .gnb ul li a:hover .char::after {transform: translateY(-100%);}
+
+
+/* section_visual */
+.visual {width: 100%; height: 100vh;}
+.visual .listLoop {height: 60%; display: flex; margin-top: 50px;  position: relative;}
+.visual .listLoop li { animation: textLoop 10s linear infinite; position: absolute;}
+.visual .listLoop li:nth-child(1) {top: 30%; left: 3%; }
+.visual .listLoop li:nth-child(2) {top: 15%; left: 26%; }
+.visual .listLoop li:nth-child(3) {top: 10%; left: 50%; }
+.visual .listLoop li:nth-child(4) {top: 15%; right: 7%; }
+.visual .listLoop li:nth-child(5) {top: 30%; right: -17%; }
+.visual .listLoop li:nth-child(6) {top: 69%; left: -16%; }
+.visual .listLoop li:nth-child(7) {top:53%; right: -37%; }
+
+.visual .listLoop li:nth-child(1) a .imgBox {transform: rotate(-14deg);}
+.visual .listLoop li:nth-child(2) a .imgBox {transform: rotate(-7deg);}
+.visual .listLoop li:nth-child(4) a .imgBox {transform: rotate(7deg);}
+.visual .listLoop li:nth-child(5) a .imgBox {transform: rotate(14deg);}
+.visual .listLoop li:nth-child(6) a .imgBox {transform: rotate(-21deg);}
+.visual .listLoop li:nth-child(7) a .imgBox {transform: rotate(21deg);}
+.visual .listLoop a .imgBox {width: 363px; height: 463px; overflow: hidden;}
+.visual .listLoop a .imgBox img {width: 100%; height: 100%;}
+
+@keyframes textLoop {
+    0% {transform: translate3d(0, 0, 0);}
+    100% {transform: translate3d(-100%, 0, 0);}
+  }
+
+@keyframes slide-up2 {
+    0% {transform: translateY(30px); opacity: 0;}
+    30% {transform: translateY(30px); opacity: 0;}
+}
+.visual.motion h2 .char {display: inline-block;
+  animation: slide-up2 0.4s cubic-bezier(.5,01,.5,1) both;
+  animation-delay: calc(70ms * var(--char-index));}
+
+
+  @keyframes textAni2 {
+    0% {opacity: 0;}
+    30% {opacity: 0;}
+}
+.visual.motion h2 .subTxt {animation-name: textAni2 ; animation-duration: 1s;}
+
+.visual h2 {text-align: center;font-weight: normal;}
+.visual h2 .title {font-size: 130px; }
+.visual h2 .title span {font-style: italic;}
+.visual h2 .subTxt {font-size: 25px; margin-top: 5px;}
+
+/* section_clonecoding */
+.clonecoding {width: 100%; margin-top: 300px;}
+.clonecoding .tit {display: flex; position: relative; margin:0 0 200px 120px}
+.clonecoding .tit:before {content: ''; position: absolute; left:25%; bottom: 0; width: 184px; height: 1px; background: #fff;}
+.clonecoding .tit h3 {font-size: 90px; font-weight: 300; margin-right: 259px; line-height: 0.9; }
+.clonecoding .tit h3 span {display: block; font-size: 90px; font-style: italic; padding-left: 140px; box-sizing: border-box;}
+.clonecoding .tit .subTxt {position: relative;}
+.clonecoding .tit .subTxt p:nth-child(1) {font-size: 100px; color: #F56408; font-weight: 600; margin-bottom: 5px;} 
+.clonecoding .tit .subTxt p:nth-child(2) {font-size: 17px;}
+.clonecoding .tit .subTxt span {font-size: 65px; font-weight: 600; position: absolute; top: -14%; left: -6%;}
+
+.clonecoding .list {display: flex; flex-wrap: nowrap;}
+.clonecoding .list li {margin-right: 80px;}
+.clonecoding .list li a .imgBox {width: 470px; height: 630px; flex-shrink: 0;}
+.clonecoding .list li a .imgBox img {width: 100%; height: 100%;}
+.clonecoding .list li a .txtBox {margin-top: 20px;}
+.clonecoding .list li a .txtBox h4 {font-size: 40px; margin-bottom: 10px;}
+.clonecoding .list li a .txtBox .info {display: flex; justify-content: space-between; color: #8A8888; font-size: 20px;}
+
+/* clonecoding button */
+.clonecoding .list li a .imgBox::before {content: 'VIEW MORE'; color: #F56408; font-size: 13px; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: all 0.4s; z-index: 2; opacity: 0;}
+.clonecoding .list li a .imgBox:after {content: ''; width: 0px; height: 0px; background: #fff url(../img/logo_round2.svg) no-repeat center/150px; border-radius: 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: 0.4s; z-index: 1; animation: spin 10s linear infinite;}
+
+@keyframes spin {
+    0% {transform: translate(-50%,-50%) rotate(0deg);}
+    100% {transform: translate(-50%,-50%) rotate(360deg);}
+}
+
+/* hover 효과 */
+.clonecoding .list li a:hover .imgBox img {filter: brightness(45%); transform: scale(1);} 
+.clonecoding .list li a:hover .imgBox::before {opacity: 1;}
+.clonecoding .list li a:hover .imgBox::after {width: 180px; height: 180px;}
+
+
+/* section_uiux */
+.uiux {width: 100%; margin-top: 500px;}
+.uiux .inner {width: 1600px; margin: 0 auto;}
+
+.uiux .inner .tit {margin-bottom: 200px;}
+.uiux .inner .tit:before {left:30%; bottom: 0;}
+.uiux .inner .tit .subTxt {margin-top: 1%;}
+
+.uiux .inner .project li {display: flex; position: relative; height: 100vh;}
+.uiux .inner .project li a {display: block;}
+.uiux .inner .project li:nth-child(1) .txtBox {position: absolute; left: 0; top: 0;}
+.uiux .inner .project li:nth-child(2) .txtBox {position: absolute; right: -6%; top: 7%;}
+.uiux .inner .project  .txtBox h3 {font-size: 120px; font-weight: normal; margin-bottom: 80px;}
+.uiux .inner .project  .txtBox h3 span {font-size: 60px; font-style: italic; }
+.uiux .inner .project li .txtBox .sub {font-size: 17px; margin-bottom: 20px;}
+.uiux .inner .project li .txtBox .tag {font-size: 15px; margin-bottom: 110px;}
+.uiux .inner .viewmore:hover img {transform: scale(1.1); transition: all 0.5s;}
+
+/* .uiux .inner .project li .imgBox {width: 1125px; height: 662px;} */
+.uiux .inner .project li .imgBox img {width: 100%;}
+.uiux .inner .project li:nth-child(1) .imgBox {margin-left: 470px;}
+.uiux .inner .project li:nth-child(2) .imgBox {margin-right: 470px;}
+
+/* project animation */
+@keyframes right {
+  0% { transform: translateX(-150px);}
+  100% { transform: translateX(0px);}
+}
+.uiux .inner .project li:nth-child(1).motion  .txtBox {animation-name:right ; animation-duration: 1s;}
+.uiux .inner .project li:nth-child(2).motion .txtBox {animation-name:left ; animation-duration: 2s;}
+
+@keyframes left {
+  0% { transform: translateX(150px);}
+  100% { transform: translateX(0px);}
+}
+.uiux .inner .project li:nth-child(1).motion .imgBox {animation-name: left; animation-duration: 1.5s;}
+.uiux .inner .project li:nth-child(2).motion .imgBox {animation-name: right; animation-duration: 2.5s;}
+
+
+/* section_ncs */
+.ncs {width: 100%; margin-bottom: 300px;}
+.ncs .inner {width: 1600px; margin: 0 auto; }
+.ncs .inner .tit {margin-bottom: 120px;}
+.ncs .inner .tit:before {left:31%; bottom: 0; width: 184px; height: 1px; background: #fff;} 
+.ncs .inner .con li { border-top: 1px solid #fff; padding: 20px 0;}
+.ncs .inner .con li:last-child {border-bottom: 1px solid #fff;}
+.ncs .inner .con li a {display: block; display: flex; width: 90%;  margin: 0 auto; justify-content: space-between;}
+.ncs .inner .con li a .ncsTit {font-size: 17px; margin-right: 50px;}
+.ncs .inner .con li a .ncsTit span {display: block; font-size: 35px;}
+.ncs .inner .con li a .sub {font-size: 20px; padding: 21px 0; box-sizing: border-box; }
+.ncs .inner .con li a .arrow {width: 37px; height: 36px; padding: 20px 0; box-sizing: border-box; }
+.ncs .inner .con li a .arrow img {width: 100%;}
+
+/* hover */
+.ncs .inner .con li a:hover {color: #F56408;}
+
+
+/* footer_contact */
+.contact {width: 100%;}
+.contact .inner {width: 1600px; margin: 0 auto;}
+
+.contact .inner .topBox {padding-left: 361px; box-sizing: border-box;}
+.contact .inner .topBox a {display: block;}
+.contact .inner .topBox a .txt {display: inline-block; position: relative; margin-bottom: 20px; margin-left: -50px; font-size: 20px;}
+.contact .inner .topBox a .txt::after {content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 300px; height: 300px; border: 1px solid; border-radius: 100%; }
+.contact .inner .topBox a .txt span {display: inline-block; width: 30px; height: 1px; background: #fff; position: absolute; left: 0; bottom: -47px;}
+.contact .inner .topBox a .txt span::after {content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 1px; height: 30px; background: #fff;}
+.contact .inner .topBox a .videoWrap {width: 1239px; height: 435px; overflow: hidden;}
+.contact .inner .topBox a .videoWrap video {width: 100%;}
+
+.contact .inner .bottomBox {display: flex; justify-content: space-between; position: relative; margin-bottom: 20px;}
+.contact .inner .bottomBox h2 {font-size: 240px; font-weight: normal; line-height: 0.8; margin-top: -139px;}
+.contact .inner .bottomBox .arrow {width: 218px; height: 170px;  position: absolute; bottom: 5%; right: 30%;}
+.contact .inner .bottomBox .arrow img {width: 100%;}
+.contact .inner .bottomBox .sns { display: inline-block; position: absolute; bottom: 0; right: 10%;}
+.contact .inner .bottomBox .sns li {font-size: 20px; margin-bottom: 20px; } 
+.contact .inner .bottomBox .sns li img {margin-right: 20px;}
+
+.contact >span {width: 100%; height: 50px; background: #F56408; display: block;}
+

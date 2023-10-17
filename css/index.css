@@ -1,0 +1,652 @@
+@charset "utf-8";
+/* 구글폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+/* reset */
+* {margin: 0;padding: 0; box-sizing: border-box;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+/* 영어폰트 */
+.en {font-family: 'Etoile';}
+.en2 {font-family: 'Montserrat', sans-serif;}
+
+/* layout */
+body {font-family: 'Noto Sans', sans-serif; letter-spacing: -1px; cursor: url(../img/cursor.png),auto;}
+.wrap {background: #1C1C1C; margin: 0 auto; overflow: hidden; color: #fff; font-weight: 300; font-size: 16px;}
+
+
+
+
+
+/* header */
+header {width: 100%;}
+header .inner {width: 1600px; display: flex; justify-content: space-between; height: 6.3vw;  margin: 0 auto; padding: 36px 0; box-sizing: border-box;  align-items: center; }
+header .inner .logo_house {width: 4.5vw; height: 2.6vw; display: block; }
+header .inner .logo_house img {width: 100%;}
+header .inner .gnb {font-size: 1vw; font-weight: 400;}
+header .inner .gnb ul {display: flex; justify-content: space-between;}
+header .inner .gnb ul li {margin-right: 3.1vw;} 
+header .inner .gnb ul li:last-child {margin-right: 0;}
+
+/* gnb hover효과 */
+header .inner .gnb ul li a .char {display: inline-block; position: relative; color: transparent; overflow: hidden;}
+header .gnb ul li a .char::before, header .gnb ul li a .char::after {position: absolute; left: 0; top: 0;  color: #fff; content: attr(data-char); transition: transform 0.35s; transition-delay: calc(30ms * var(--char-index));}
+header .gnb ul li a .char::before {transform: translateY(100%);}
+
+/* hover */
+header .gnb ul li a:hover .char::before {transform: translateY(0%); color: #F56408; opacity: 0.6;}
+header .gnb ul li a:hover .char::after {transform: translateY(-100%);}
+
+/* section_visual */
+.visual {width: 100%; height: 100vh;}
+.visual .inner {width: 1600px;  margin: 0 auto;  position: relative; }
+
+.visual .inner .main {display: flex; margin-top: 7.5vw;}
+.visual .inner .main .mainTxt { width: 70%; line-height: 0.9;}
+.visual .inner .main .mainTxt p:nth-child(1) {font-size: 8.9vw; font-style: italic;  padding-left: 20.8vw; box-sizing: border-box;}
+.visual .inner .main .mainTxt p:nth-child(2) span {font-size: 5.2vw; font-style: italic; font-weight: normal;}
+.visual .inner .main .mainTxt p:nth-child(2) {font-size: 9.4vw; font-weight: 600; padding-left: 6.9vw; box-sizing: border-box; }
+.visual .inner .main .mainTxt p:nth-child(3) {font-size: 9.4vw; font-weight: 600;  padding-left: 27.4vw; box-sizing: border-box; }
+
+.visual.motion .inner .main .mainTxt {transform: translate3d(0,0,0) skewY(0deg); overflow: hidden;}
+.visual.motion .inner .main .mainTxt p {animation-name: textAni; animation-duration:  1.5s;}
+.visual.motion .inner .main .mainTxt p:nth-child(2) {animation-duration:  1.7s;}
+.visual.motion .inner .main .mainTxt p:nth-child(3) {animation-duration:  1.8s;}
+
+@keyframes textAni {
+    0% {opacity: 0;}
+    30% {opacity: 0; transform: translate3d(0,-90px,0) skewY(-10deg); transform-origin:top left;}
+}
+
+
+.visual .inner .main .mainImg {position: absolute; top: 56%; left:75%; transform: translate(-50%,-50%); width: 20%;}
+.visual .inner .main .mainImg .photoBox {position: relative; z-index: 2;  }
+.visual .inner .main .mainImg .bgBox {position: absolute; top: 59px; left: 45px;  border-radius: 50% 30% 50% 30% / 40% 50% 60% 50%;  overflow: hidden;  animation: imgAni 3s linear infinite; width: 430px; height: 430px; background: #FF7C29;}
+.visual.motion .inner .main .mainImg {animation-name: textAni2; animation-duration: 2.3s}
+
+@keyframes imgAni {
+    0%, 100% {  border-radius: 40% 60% 70% 30% / 60% 40% 60% 50%; }
+    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+    67% { border-radius: 50% 60% 30% 60% / 100% 60% 30% 60%;  }
+  }
+
+
+/* subtext */
+.visual .inner .subText {font-size: 1vw;}
+.visual .inner .subText .left { position: absolute; left: 5.6vw; top: -4.1vw;  letter-spacing: 0; }
+.visual .inner .subText .center {position: absolute;  left: 28.1vw; bottom: -3.1vw;  letter-spacing: 0; }
+.visual .inner .subText .right {position: absolute; right: 5.4vw; bottom:-7.3vw;  letter-spacing: 0; }
+.visual.motion .inner .subText {animation-name: textAni2; animation-duration: 2.3s}
+
+@keyframes textAni2 {
+    0% {opacity: 0;}
+    30% {opacity: 0;}
+}
+
+
+/* star */
+.visual .inner .star img:nth-child(1) {position: absolute; top: 5.7vw; left: 12.9vw; width: 2.3vw; height: 2.3vw; animation: rotateAni 6s linear infinite;}
+.visual .inner .star img:nth-child(2) { position: absolute; left: 20.8vw; bottom: -3.1vw;  width: 2.3vw; height: 2.3vw; animation: rotateAni 10s linear infinite;}
+.visual .inner .star img:nth-child(3) { position: absolute; right: 4.7vw; top: -2.5vw;    width: 2.3vw; height: 2.3vw; animation: rotateAni 10s linear infinite;}
+.visual.motion .inner .star {animation-name: textAni2; animation-duration: 2.3s}
+/* star animation */
+@keyframes rotateAni {
+    100% {transform: rotate(300deg);}
+}
+
+/* scrolldown */
+.visual .inner .scroll {position: absolute; left: 0; bottom: -4.2vw; font-size: 0.9vw; transform: rotate(90deg);}
+.visual .inner .scroll:before {content: ''; position: absolute; background: #fff; width: 10.4vw; height: 0.1vw; left: 0; top: 1.2vw;  animation: lineAni 2s infinite;}
+/* scroll animation */
+@keyframes lineAni {
+    0% {width: 0%;}
+    100% {width: 10.4vw;}
+}
+
+/* section_intro */
+.intro {width: 100%; height: 100vh; position: relative;}
+.intro .videoWrap {width: 100%;}
+.intro .videoWrap video {width: 100%; height: 100%; object-fit:cover}
+
+.intro .flow-container {position: absolute; bottom: 0%; left: 0; opacity: 0; }
+.intro .flow-container .flow-text {display: flex; flex: 0 0 auto; white-space: nowrap; overflow: hidden; transition: 0.3s; font-size: 5.2vw; font-weight: 600; -webkit-text-stroke: 1px #F56408; color: transparent}
+.intro .flow-container .flow-text:hover {color: #F56408;}
+.intro .flow-container .flow-text:hover .flow-wrap {animation-play-state: paused;cursor: pointer;}
+.intro .flow-container .flow-text .flow-wrap {animation: textLoop 10s linear infinite; margin-right: 15px;}
+
+  /* slogan animation */ 
+@keyframes textLoop {
+    0% {transform: translate3d(0, 0, 0);}
+    100% {transform: translate3d(-100%, 0, 0);}
+  }
+
+/* section_about */
+.about {width: 100%; margin: 300px 0;}
+.about .inner {width: 1600px; margin: 0 auto; position: relative;}
+
+.about .inner .topBox {margin-bottom: 6.3vw;}
+.about .inner .topBox p:nth-child(1) {font-size: 4.2vw; margin-bottom:1vw;}
+.about .inner .topBox p:nth-child(2) {font-size: 1.6vw;}
+
+.about .inner .bottomBox {text-align: center; width: 31.1vw; margin: 0 auto;} 
+.about .inner .bottomBox .imgBox {width: 31vw;  position: relative; transition: all 0.5s;} 
+
+.about .inner .bottomBox .imgBox.motion {position: relative; animation-name: imgAni2; animation-duration: 1s;}
+@keyframes imgAni2 {
+    0% {transform: translateY(50px);}
+}
+.about .inner .bottomBox .imgBox.motion::after {content: ''; width: 100%; height: 0; background: #1C1C1C; position: absolute; top: 0; left: 0; animation-name: mask; animation-duration: 1.2s ;}
+@keyframes mask {
+    0% {height: 70%;}
+}
+
+
+.about .inner .bottomBox .imgBox img {width: 100%;}
+.about .inner .bottomBox .txtBox {margin-top: 1vw; text-align: left;}
+.about .inner .bottomBox .txtBox .tit {font-size: 2.1vw; font-weight: 600; margin-bottom: 0.5vw; letter-spacing: 5px;}
+.about .inner .bottomBox .txtBox p.en {font-size: 1.6vw; font-style: italic; margin-bottom: 1vw;} 
+.about .inner .bottomBox .txtBox .txt {font-size: 1vw; margin-bottom: 1.8vw;}
+.about .inner .bottomBox .txtBox .viewmore:hover img {transform: scale(1.1); transition: all 0.5s;}
+
+.about .inner .logo_round {position: absolute; top: 18.8vw; right: 27.8vw; width: 120px; height: 120px; animation: rotateAni 10s linear infinite;}
+.about .inner .logo_round img {width: 100%;}
+.about .inner h2 {font-size: 5.2vw; color: #F56408; font-style: italic; font-weight: normal; position: absolute; right: 11vw; bottom: 32.8vw;}
+
+/* animation */
+@keyframes slide-up2 {
+    0% {transform: translateY(30px); opacity: 0;}
+    30% {transform: translateY(30px); opacity: 0;}
+}
+
+.about.motion .topBox p:nth-child(1) .char {display: inline-block;
+    animation: slide-up2 0.4s cubic-bezier(.5,01,.5,1) both;
+    animation-delay: calc(70ms * var(--char-index));
+ }
+ .about h2.motion .char {display: inline-block;
+    animation: slide-up2 1s cubic-bezier(.5,01,.5,1) both;
+    animation-delay: calc(70ms * var(--char-index));}
+ 
+.about.motion .topBox p:nth-child(2) {animation-name: textAni2; animation-duration: 2.3s}
+.about .bottomBox .txtBox.motion {animation-name: textAni2; animation-duration: 2.7s}
+
+@keyframes slide-up {
+    0% {transform: translateY(-30px);}
+    30% {transform: translateY(0);}
+}
+.about .inner .bottomBox .imgBox.motion {animation-name: slide-up; animation-duration: 1s;}
+
+
+
+/* section_strengths */
+.strengths {width: 100%; margin-bottom: 300px;}
+.strengths .inner {width: 1600px; margin: 0 auto;}
+
+.strengths .inner .tit {line-height: 1.1; margin-bottom: 7.8vw;}
+.strengths .inner .tit h2 {font-size: 4.7vw; font-weight: 300;}
+.strengths .inner .tit h2 span {display: block; font-style: italic; padding-left: 4.3vw; box-sizing: border-box;}
+.strengths .inner .tit p {font-size: 0.9vw; padding-left: 4.3vw; box-sizing: border-box;}
+
+/* tit animation */
+.strengths.motion .inner .tit h2 {animation-name: textAni; animation-duration: 1s;}
+.strengths.motion .inner .tit p {animation-name: textAni2; animation-duration: 1.5s; }
+
+.strengths .inner .con {position: relative;}
+.strengths .inner .con .lineBox {width: 58.5vw;  margin: 0 auto;}
+.strengths .inner .con .lineBox .svgAni {width: 100%;}
+.strengths .inner .con .lineBox .svgAni path {fill:none; stroke-width: 2; stroke-dasharray: 5652; stroke-dashoffset: 0;}
+
+/* line svg animation */
+.lineBox.motion .svgAni path {animation-name: line; animation-duration: 5s;}
+@keyframes line {
+    0% {stroke-dashoffset: 5652;}
+    100% {stroke-dashoffset: 0;}
+}
+
+.strengths .inner .con ul li {position: absolute;}
+.strengths .inner .con ul li img {width: 100px; height: 100px; margin-bottom: 5px;}
+.strengths .inner .con ul li:nth-child(1) {right: 23%; top: -4%;}
+.strengths .inner .con ul li:nth-child(2) {left: 5%; top: 7%;}
+.strengths .inner .con ul li:nth-child(3) {right: 0; top: 29%;}
+.strengths .inner .con ul li:nth-child(4) {left: 15%; bottom: 24%;}
+.strengths .inner .con ul li:nth-child(5) {right: 20%; bottom: -8%;}
+.strengths .inner .con ul li p span {display: block; font-size: 2.1vw; font-weight: 400; margin-bottom: 5px; position: relative; z-index: 1;}
+.strengths .inner .con ul li p span::after {content: ''; position: absolute; left: -2%; top: -10%; width: 30px; height: 30px; background: #F56408; border-radius: 50%; z-index: -1;}
+.strengths .inner .con ul li p span::before {content: ''; position: absolute; left: -2%; top: -10%; width: 30px; height: 30px; background: #F56408; border-radius: 50%; z-index: -1; animation: dot 1.5s infinite;}
+
+@keyframes dot {
+    100% {opacity: 1; transform: scale(2); opacity: 0;}
+}
+
+/* text ani */
+@keyframes opacity-ani {
+    0% {opacity: 0;}
+    70% {opacity: 100%;}
+   
+}
+.strengths .inner .con ul li.motion.a {animation-name: opacity-ani; animation-duration: 1s;} 
+.strengths .inner .con ul li.motion.b {animation-name: opacity-ani; animation-duration: 2s;} 
+.strengths .inner .con ul li.motion.c {animation-name: opacity-ani; animation-duration: 3s;} 
+.strengths .inner .con ul li.motion.d {animation-name: opacity-ani; animation-duration: 4s;} 
+.strengths .inner .con ul li.motion.e {animation-name: opacity-ani; animation-duration: 5s;} 
+
+
+
+
+/* section_skills */
+.skills {width: 100%; margin:500px 0;}
+.skills .inner {width: 1600px;  margin: 0 auto;}
+
+.skills .inner >.tit {line-height: 0.9; display: flex; position: relative; margin-bottom: 5.2vw;}
+.skills .inner >.tit::after {content: ''; position: absolute; left: 22.4vw; bottom: 0.2vw; width: 184px; height: 1px; background: #fff; }
+.skills .inner .tit h2 {font-size: 5.2vw; font-weight: 300; margin-right: 13.5vw;}
+.skills .inner .tit h2 span {display: block; font-size: 4.2vw; font-style: italic;}
+.skills .inner .tit .subTxt {position: relative;  margin-top: 1.6vw;}
+.skills .inner .tit .subTxt p:nth-child(1) {font-size: 6.8vw; color: #F56408; font-weight: 600; margin-bottom: 0.3vw;}
+.skills .inner .tit .subTxt p:nth-child(2) {font-size: 0.9vw;}
+.skills .inner .tit .subTxt span {font-size: 3.4vw; font-weight: 600; position: absolute; top: -14%; left: -6%;}
+
+.skills .inner .con {display: flex; flex-wrap: wrap-reverse; justify-content: space-between;} 
+.skills .inner .con li {background: url(../img/skills/bg.png) no-repeat; width: 391px; height: 410px; margin-bottom: 50px; padding: 60px 20px; box-sizing: border-box; text-align: center; overflow: hidden;}
+.skills .inner .con li:nth-child(1) {margin-left: 36px;}
+.skills .inner .con li:nth-child(5) {margin-left: 427px;}
+.skills .inner .con li .imgBox {width: 100px; height: 100px;  margin: 0 auto 20px;}
+.skills .inner .con li .imgBox img {width: 100%;}
+.skills .inner .con li .txtBox .tit {font-size: 35px; font-weight: 400; margin-bottom: 40px; position: relative;}
+.skills .inner .con li .txtBox .tit::after {content: ''; position: absolute; left: 10px; bottom: -15px; width: 300px; height: 1px; background: #fff;}
+.skills .inner .con li .txtBox .txt {text-align: left; margin-left: 10px;}
+.skills .inner .con li .txtBox .star {font-size: 25px; font-weight: 600; margin-top: 5px; text-align: left; margin-left: 10px;}
+.skills .inner .con li .txtBox .star span {color: #979292;}
+
+.skills .inner .con li:hover {background: #fff; width: 372px; height: 391px; color: #000; transition: all 0.8s; cursor: pointer;}
+.skills .inner .con li:hover .txtBox .tit::after {background: #000;}
+
+/* tit animation */
+.skills.motion .inner .tit h2 {animation-name: textAni; animation-duration: 1s;}
+.skills.motion .inner .tit p {animation-name: textAni2; animation-duration: 1.5s; }
+
+
+/* section_slogan */
+.slogan {width: 100%; height: 100vh; text-transform: uppercase;}
+.slogan .inner {width: 1600px;  margin: 0 auto; display: flex; padding-left: 27.9vw; box-sizing: border-box;}
+.slogan .inner p {font-size: 20px; position: relative;  display: inline-block;}
+.slogan .inner p:after {content: ''; position: absolute; top: -0.8vw; left: 0; width: 27px; height: 3px; background: #F56408;}
+.slogan .inner .textBox {font-size: 6.3vw;  font-weight: 500; text-align: right; line-height: 1.1;  overflow: hidden; position: relative;}
+.slogan .inner .textBox .txt {color: #8A8888;}
+.slogan .inner .textBox ul li:nth-child(2) {margin-right: 18.9vw;}
+.slogan .inner .textBox ul li:nth-child(4) {text-align: center;}
+.slogan .inner .textBox ul li:nth-child(4) span {background: linear-gradient(to left,#FFC799,  #F56408,#FFC799 ); border-radius: 63px; width: 18.7vw; height: 6.5vw; display: inline-block;color: #1C1C1C;}
+.slogan .inner .textBox .container {  height: 5.2vw; overflow: hidden; outline: 1px transparent; position: absolute; top: 0; right: 0;}
+.slogan .inner .textBox .container .mask {color: #fff; }
+.slogan .inner .textBox .container .mask span {color: #fff;}
+
+/* background: linear-gradient(to left,#FFC799,  #F56408,#FFC799 ); */
+/* section_works */
+.works {width: 100%;}
+.works .inner {width: 1600px;  margin: 0 auto; position: relative;}
+
+.works .inner .tit {margin-bottom: 9.9vw;}
+.works .inner .tit h2 {font-size: 4.2vw; font-weight: normal;}
+.works .inner .tit h2 span {font-size: 5.2vw; font-style: italic; margin-left: 10.4vw; display: inline-block; position: relative;}
+.works .inner .tit h2 span::after {content: ''; position: absolute; left: -65%; bottom: 23%; background: #fff; width: 184px; height: 1px;}
+.works .inner .tit p {font-size: 1vw;}
+
+/* tit animation */
+.works.motion .inner .tit h2 {animation-name: textAni; animation-duration: 1s;}
+.works.motion .inner .tit p {animation-name: textAni2; animation-duration: 1.5s; }
+
+.works .inner .con  h3 {font-size: 6.3vw; font-weight: normal; margin-bottom: 4.2vw;}
+.works .inner .con  h3 span {font-size: 3.1vw; font-style: italic; }
+.works .inner .con .clonecoding h3 {margin-bottom: 2.1vw;}
+
+.works .inner .con .project li {display: flex; position: relative; height: 100vh;}
+.works .inner .con .project li a {display: block;}
+.works .inner .con .project li:nth-child(1) .txtBox {position: absolute; left: 0; top: 0;}
+.works .inner .con .project li:nth-child(2) .txtBox {position: absolute; right: -6%; top: 7%;}
+
+.works .inner .con .project li .txtBox .sub {font-size: 0.9vw; margin-bottom: 1vw;}
+.works .inner .con .project li .txtBox .tag {font-size: 0.8vw; margin-bottom: 5.7vw;}
+.works .inner .con .project li .txtBox .viewmore:hover img {transform: scale(1.1); transition: all 0.5s;}
+
+
+.works .inner .con .project li .imgBox {width: 58.6vw; height: 34.5vw;}
+.works .inner .con .project li .imgBox img {width: 100%;}
+.works .inner .con .project li:nth-child(1) .imgBox {margin-left: 24.5vw;}
+.works .inner .con .project li:nth-child(2) .imgBox {margin-right: 24.5vw;}
+
+/* project animation */
+@keyframes right {
+    0% { transform: translateX(-150px);}
+    100% { transform: translateX(0px);}
+}
+.works.inner .con .project li:nth-child(1).motion  .txtBox {animation-name:right ; animation-duration: 1s;}
+.works .inner .con .project li:nth-child(2).motion .txtBox {animation-name:left ; animation-duration: 2s;}
+
+@keyframes left {
+    0% { transform: translateX(150px);}
+    100% { transform: translateX(0px);}
+}
+.works .inner .con .project li:nth-child(1).motion .imgBox {animation-name: left; animation-duration: 1.5s;}
+.works .inner .con .project li:nth-child(2).motion .imgBox {animation-name: right; animation-duration: 2.5s;}
+
+.works .inner .con .clonecoding >.txtBox {margin-bottom: 7.8vw;}
+.works .inner .con .clonecoding .workList { display: flex; flex-wrap: wrap; justify-content: space-between;}
+.works .inner .con .clonecoding .workList li {margin-bottom: 7.8vw;}
+.works .inner .con .clonecoding .workList li:nth-child(5) {margin-bottom: 0px;}
+.works .inner .con .clonecoding .workList li:nth-child(2n) {margin-top: -18.8vw;}
+.works .inner .con .clonecoding .workList li a {display: block;} 
+.works .inner .con .clonecoding .workList li a .imgBox {width: 36.3vw; height: 41.5vw; overflow: hidden; position: relative;}
+.works .inner .con .clonecoding .workList li a .imgBox img {width: 100%; height: 100%; transition: .5s;  transform: scale(1.1);}
+.works .inner .con .clonecoding .workList li a .txtBox h4 {font-size: 1.8vw; margin-top: 0.3vw;}
+.works .inner .con .clonecoding .workList li a .txtBox .info {display: flex; justify-content: space-between; margin-top: 0.3vw; font-size: 1vw;}
+.works .inner .viewmore2 {position: absolute; right: 0; bottom: 0; display: inline-block;}
+.works .inner .viewmore2:hover img {transform: scale(1.1); transition: all 0.5s;}
+/* worklist button */
+.works .inner .con .clonecoding .workList li a .imgBox::before {content: 'VIEW MORE'; color: #F56408; font-size: 13px; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: all 0.4s; z-index: 2; opacity: 0;}
+.works .inner .con .clonecoding .workList li a .imgBox:after {content: ''; width: 0px; height: 0px; background: #fff url(../img/logo_round2.svg) no-repeat center/150px; border-radius: 100%; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: 0.4s; z-index: 1; animation: spin 10s linear infinite;}
+
+@keyframes spin {
+    0% {transform: translate(-50%,-50%) rotate(0deg);}
+    100% {transform: translate(-50%,-50%) rotate(360deg);}
+}
+
+/* hover 효과 */
+.works .inner .con .clonecoding .workList li a:hover .imgBox img {filter: brightness(45%); transform: scale(1);} 
+.works .inner .con .clonecoding .workList li a:hover .imgBox::before {opacity: 1;}
+.works .inner .con .clonecoding .workList li a:hover .imgBox::after {width: 180px; height: 180px;}
+
+
+
+/* section_ncs */
+.ncs {width: 100%; height: 100vh; display: flex; justify-content: space-between; padding: 15.6vw 0; box-sizing: border-box; overflow: hidden;}
+.ncs .tit {width: 25%; text-align: center;}
+.ncs .tit h2 {font-size: 5.2vw; font-weight: normal; line-height: 1; margin-bottom: 0.3vw;}
+.ncs .tit h2 span {display: block; }
+.ncs .tit p {font-size: 1vw;}
+
+.ncs .list {width: 65%; display: flex; flex-wrap: nowrap;} 
+.ncs .list li {width: 27.1vw; height: 16.8vw; flex-shrink: 0;padding: 0.5vw;  box-sizing: border-box; overflow: hidden;}
+.ncs .list li a {display: inline-block; border-radius: 30px; width: 100%; height: 100%; overflow: hidden;}
+.ncs .list li a img {width: 100%; height: 100%; transition: all 0.5s; }
+.ncs .list li a img:hover {filter: brightness(80%); transform: scale(1.1);}
+.ncs .list li.a {transform: rotate(-7deg);}
+.ncs .list li.b {transform: rotate(7deg);}
+
+/* footer_contact */
+.contact {width: 100%;}
+.contact .inner {width: 1600px; margin: 0 auto;}
+
+.contact .inner .topBox {padding-left: 18.8vw; box-sizing: border-box;}
+.contact .inner .topBox a {display: block;}
+.contact .inner .topBox a .txt {display: inline-block; position: relative; margin-bottom: 1vw; margin-left: -2.6vw; font-size: 1vw;}
+.contact .inner .topBox a .txt::after {content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 15.6vw; height: 15.6vw; border: 1px solid; border-radius: 100%; }
+.contact .inner .topBox a .txt span {display: inline-block; width: 1.6vw; height: 0.1vw; background: #fff; position: absolute; left: 0; bottom: -2.4vw;}
+.contact .inner .topBox a .txt span::after {content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 0.1vw; height:  1.6vw;; background: #fff;}
+.contact .inner .topBox a .videoWrap {width: 64.5vw; height: 22.7vw; overflow: hidden;}
+.contact .inner .topBox a .videoWrap video {width: 100%;}
+
+.contact .inner .bottomBox {display: flex; justify-content: space-between; position: relative; margin-bottom: 1vw;}
+.contact .inner .bottomBox h2 {font-size: 12.5vw; font-weight: normal; line-height: 0.8; margin-top: -7.2vw;}
+.contact .inner .bottomBox .arrow {width: 11.4vw; height: 8.9vw;  position: absolute; bottom: 5%; right: 30%;}
+.contact .inner .bottomBox .arrow img {width: 100%;}
+.contact .inner .bottomBox .sns { display: inline-block; position: absolute; bottom: 0; right: 10%;}
+.contact .inner .bottomBox .sns li {font-size: 1vw; margin-bottom: 1vw; } 
+.contact .inner .bottomBox .sns li img {margin-right: 1vw;}
+
+.contact >span {width: 100%; height: 2.6vw; background: #F56408; display: block;}
+
+
+
+/* 반응형 */
+@media screen and (min-width:1300px) and (max-width:1500px) {
+    header .inner {width: 85%;}
+    .visual .inner .main {margin-top: 12.5vw;}
+    header .inner .logo_house {width: 5.5vw;}
+    header .inner .gnb {font-size: 1.4vw;}
+    .visual .inner {width: 90%;}
+    .visual .inner .star img:nth-child(3) {right: 30.7vw;}
+    .visual .inner .main .mainImg {width: 27%;}
+    .visual .inner .subText {font-size: 1.2vw;}
+    .visual .inner .subText .right {bottom: -11.7vw;}
+    .intro .flow-container {bottom: 18%;}
+    .about .inner {width: 90%;}
+    .about .inner .logo_round { width: 100px; height: 100px; top: 20.8vw; right: 26.8vw;}
+    .about .inner .topBox p:nth-child(1){font-size: 5.2vw;}
+    .about .inner .topBox p:nth-child(2) {font-size: 2vw;}
+    .about .inner .bottomBox {width: 35.1vw;}
+    .about .inner .bottomBox .imgBox {width: 35vw;}
+    .about .inner .bottomBox .txtBox .tit {font-size: 2.4vw;}
+    .about .inner .bottomBox .txtBox p.en {font-size: 2vw;}
+    .about .inner .bottomBox .txtBox .txt {font-size: 1.2vw;}
+    .about .inner h2 {right: 19vw; bottom: 36.8vw;}
+    .strengths .inner {width: 90%;}
+    .strengths .inner .tit p {font-size: 1.2vw;}
+    .strengths .inner .con .lineBox {width: 70.5vw;}
+    .strengths .inner .con ul li img {width: 90px; height: 90px;}
+    .strengths .inner .con ul li:nth-child(1) {right: 13%; top: 3%;}
+    .strengths .inner .con ul li:nth-child(2) {top: 13%;}
+    .strengths .inner .con ul li:nth-child(4) {left: 10%; bottom: 30%;}
+    .strengths .inner .con ul li:nth-child(5) {right: 12%; bottom: 0%;}
+    .skills .inner {width: 90%;}
+    .skills .inner >.tit::after {width: 138px;}
+    .skills .inner .tit .subTxt p:nth-child(2) {font-size: 1.2vw;}
+    .skills .inner .con {flex-wrap: wrap; justify-content: none;}
+    .skills .inner .con li {margin-bottom: 30px; width: 381px; height: 400px;}
+    .skills .inner .con li:nth-child(1) {margin-left: 0;}
+    .skills .inner .con li:nth-child(5) {margin-left: 0;}
+    .slogan .inner {width: 90%; padding-left: 100px;}
+    .slogan .inner .textBox {font-size: 8.3vw;}
+    .slogan .inner .textBox ul li:nth-child(4) span {width: 23.7vw; height: 9.5vw;}
+    .works .inner {width: 90%;}
+    .works .inner .tit p {font-size: 1.2vw;}
+    .ncs .list {width: 70%;}
+    .ncs .tit p {font-size: 17px;}
+    .contact .inner {width: 90%;}
+   
+}
+
+/* 1031px */
+@media screen and (min-width:801px) and (max-width:1299px) {  
+    header .inner {width: 80%;}
+    header .inner .logo_house {width: 6.5vw;}
+    header .inner .gnb {font-size: 1.5vw;}
+    .visual .inner {width: 83%;}
+    .visual .inner .main {margin-top: 13.5vw;}
+    .visual .inner .main .mainTxt {width: 100%;}
+    .visual .inner .main .mainTxt p:nth-child(1) {font-size: 10.2vw; padding-left: 29.8vw;}
+    .visual .inner .main .mainTxt p:nth-child(2) span {font-size: 6.2vw;}
+    .visual .inner .main .mainTxt p:nth-child(2) {font-size: 13.4vw;}
+    .visual .inner .main .mainTxt p:nth-child(3) {font-size: 13.4vw;}
+    .visual .inner .subText {font-size: 1.4vw;}
+    .visual .inner .subText .center {bottom: -5.1vw;}
+    .visual .inner .subText .right {display: none;}
+    .visual .inner .main .mainImg {display: none;}
+    .intro .flow-container {bottom: 41%;}
+    .about .inner {width: 90%;}
+    .about .inner h2 {bottom: 37.8vw;}
+    .about .inner .topBox p:nth-child(1) {font-size: 7.2vw;}
+    .about .inner .topBox p:nth-child(2) {font-size: 2vw;}
+    .about .inner .bottomBox {width: 49.1%;}
+    .about .inner .bottomBox .imgBox {width: 37vw;}
+    .about .inner .bottomBox .txtBox .tit {font-size: 3.1vw;}
+    .about .inner .bottomBox .txtBox .txt {font-size: 1.5vw;}
+    .about .inner .bottomBox .txtBox p.en {font-size: 2.6vw;}
+    .about .inner .logo_round {width: 80px; height: 80px; top: 22.8vw; right: 30.8vw;}
+    .strengths .inner {width: 90%;}
+    .strengths .inner .tit h2 {font-size: 5.7vw;}
+    .strengths .inner .tit p {font-size: 1.5vw;}
+    .strengths .inner .con .lineBox {width: 80.5vw;}
+    .strengths .inner .con ul li:nth-child(1) {right: 2%; top: 6%;}
+    .strengths .inner .con ul li:nth-child(2) {left: 4%; top: 17%;}
+    .strengths .inner .con ul li:nth-child(3) {right: -3%; top: 35%;}
+    .strengths .inner .con ul li:nth-child(4) {left: 4%; bottom: 30%;}
+    .strengths .inner .con ul li:nth-child(5) {right: 2%; bottom: 8%;}
+    .strengths .inner .con ul li img {width: 80px; height: 80px;}
+    .skills .inner {width: 90%;}
+    .skills .inner .tit h2 {font-size: 5.7vw;}
+    .skills .inner .tit .subTxt p:nth-child(2) {font-size: 1.5vw;}
+    .skills .inner >.tit::after {width: 127px;}
+    .skills .inner .con {flex-wrap: wrap;}
+    .skills .inner .con li {margin-bottom: 30px;}
+    .skills .inner .con li:nth-child(1) {margin-left: 0;}
+    .skills .inner .con li:nth-child(5) {margin-left: 0;}
+    .slogan .inner {width: 90%; padding-left: 14.9vw;}
+    .slogan .inner .textBox {font-size:8.3vw ;}
+    .slogan .inner .textBox ul li:nth-child(4) span {width: 21.7vw; height: 9.5vw;}
+    .works .inner {width: 90%;}
+    .works .inner .tit h2 {font-size: 5.7vw;}
+    .works .inner .tit h2 span::after {width: 102px;}
+    .works .inner .tit p {font-size: 1.5vw;}
+    .works .inner .con .project li .txtBox .sub {font-size: 1.3vw;}
+    .works .inner .con .project li .txtBox .tag {font-size: 1.2vw;}
+    .works .inner .con .project li {height: 60vh;}
+    .ncs .tit h2 {font-size: 5.7vw;}
+    .ncs .tit p {font-size: 1.5vw;}
+    .ncs .tit {width: 30%;}
+    .ncs .list {width: 62%;}
+    .ncs .list li {width: 30.1vw; height: 18.8vw;}
+    .contact .inner {width: 90%;}
+    .contact .inner .bottomBox .sns li {font-size: 1.7vw;}
+    .contact .inner .bottomBox .sns {right: 0%;}
+    
+}
+/* 600px */
+@media screen and (min-width:501px) and (max-width:800px) {
+    header .inner {width: 90%;}
+    header .inner .logo_house {width: 6.5vw;}
+    header .inner .gnb {font-size: 1.5vw;}
+    .visual {height: 80vh;}
+    .visual .inner {width: 90%;}
+    .visual.motion .inner .main .mainImg {display: none;}
+    .visual .inner .main {margin-top: 15.5vw;}
+    .visual .inner .main .mainTxt {width: 90%;}
+    .visual .inner .main .mainTxt p:nth-child(1) {font-size: 11.9vw;}
+    .visual .inner .main .mainTxt p:nth-child(2) span {font-size: 7.2vw;}
+    .visual .inner .main .mainTxt p:nth-child(2) {font-size: 12.4vw;}
+    .visual .inner .main .mainTxt p:nth-child(3) {font-size: 12.4vw;}
+    .visual .inner .subText {font-size: 1.5vw;}
+    .visual .inner .subText .left {top: -6.1vw;}
+    .visual .inner .subText .center {bottom: -5.1vw;}
+    .intro .videoWrap {margin-top: 22.4vw;}
+    .intro .flow-container {bottom: 55%;}
+    .about .inner {width: 90%;}
+    .about .inner .logo_round {width: 50px; height: 50px;}
+    .strengths .inner {width: 90%;}
+    .strengths .inner .tit h2 {font-size: 6.7vw;}
+    .strengths .inner .tit p {font-size: 1.5vw;}
+    .strengths .inner .con {margin-top: -8.2vw;}
+    .strengths .inner .con .lineBox {width: 78.5vw;}
+    .strengths .inner .con ul li img {width: 50px; height: 50px;}
+    .strengths .inner .con ul li:nth-child(1) {right: -3%; top: 15%;}
+    .strengths .inner .con ul li:nth-child(2) {top: 25%;}
+    .strengths .inner .con ul li:nth-child(3) {top: 42%;}
+    .strengths .inner .con ul li:nth-child(4) {left: 0%; bottom: 33%;}
+    .strengths .inner .con ul li:nth-child(5) {right: 2%; bottom: 23%;}
+    .skills .inner {width: 90%;}
+    .skills .inner .tit h2 {font-size: 6.7vw;}
+    .skills .inner .tit .subTxt p:nth-child(2) {font-size: 1.5vw;}
+    .skills .inner >.tit::after {left: 27.4vw; width: 68px;}
+    .skills .inner .con {display: block;}
+    .skills .inner .con li:nth-child(1) {margin-left: 0;}
+    .skills .inner .con li:nth-child(5) {margin-left: 0;}
+    .slogan .inner {width: 90%; padding-left: 9.9vw;}
+    .slogan .inner p {font-size: 14px;}
+    .slogan .inner .textBox {font-size: 8.3vw;}
+    .slogan .inner .textBox ul li:nth-child(4) span {width: 20.7vw; height: 9.5vw;}
+    .works .inner {width: 90%;}
+    .works .inner .tit h2 {font-size: 6.7vw;}
+    .works .inner .tit p {font-size: 1.5vw;}
+    .works .inner .tit h2 span::after {width: 62px;}
+    .works .inner .con .project li:nth-child(2) .txtBox {right: 0%; top: 0%;}
+    .works .inner .con .clonecoding .workList {display: block;}
+    .works .inner .con .clonecoding .workList li a .imgBox {width: 47.3vw; height: 61.5vw;}
+    .works .inner .con .clonecoding .workList li {margin-bottom: 10.8vw;}
+    .works .inner .con .clonecoding .workList li a .txtBox h4 {font-size: 3.8vw;}
+    .works .inner .con .clonecoding .workList li a .txtBox .info {display: block; font-size: 2vw;}
+    .works .inner .con .clonecoding .workList li:nth-child(2n) { margin-top: 0;}
+    .works .inner .con .clonecoding .workList li:nth-child(5) {margin-bottom: 10.8vw;}
+    .works .inner .viewmore2 {bottom: -1%;}
+    .contact .inner {width: 90%;}
+
+}
+/* 457px */
+@media screen and (max-width:500px) {
+    header .inner {width: 80%;}
+    header .inner .logo_house {width: 6.5vw;}
+    header .inner .gnb {font-size: 1.5vw;}
+    .visual {height: 80vh;}
+    .visual .inner {width: 90%;}
+    .visual.motion .inner .main .mainImg {display: none;}
+    .visual .inner .main {margin-top: 15.5vw;}
+    .visual .inner .main .mainTxt {width: 90%;}
+    .visual .inner .main .mainTxt p:nth-child(1) {font-size: 11.9vw;}
+    .visual .inner .main .mainTxt p:nth-child(2) span {font-size: 7.2vw;}
+    .visual .inner .main .mainTxt p:nth-child(2) {font-size: 12.4vw;}
+    .visual .inner .main .mainTxt p:nth-child(3) {font-size: 12.4vw;}
+    .visual .inner .subText {font-size: 1.5vw;}
+    .visual .inner .subText .left {top: -6.1vw;}
+    .visual .inner .subText .center {bottom: -5.1vw;}
+    .intro .videoWrap {margin-top: 22.4vw;}
+    .intro .flow-container {bottom: 55%;}
+    .about .inner {width: 90%;}
+    .about .inner .logo_round {width: 40px; height: 40px; top: 25.8vw; right: 40.8vw;}
+    .about .inner .topBox p:nth-child(1) { font-size: 8.2vw;}
+    .about .inner .topBox p:nth-child(2) { font-size: 2.6vw;}
+    .about .inner .bottomBox {width: 90%;}
+    .about .inner .bottomBox .imgBox { width: 45vw;}
+    .about .inner .bottomBox .txtBox { margin-top: 3vw;}
+    .about .inner .bottomBox .txtBox .tit { font-size: 4.1vw;}
+    .about .inner .bottomBox .txtBox p.en {font-size: 4.6vw;}
+    .about .inner .bottomBox .txtBox .txt {font-size: 3vw;}
+    .about .inner h2 {right: 22vw; bottom: 82.8vw;}
+    .about .inner .bottomBox .txtBox .txt {margin-bottom: 4.8vw;}
+    .strengths .inner {width: 90%;}
+    .strengths .inner .tit h2 {font-size: 6.7vw;}
+    .strengths .inner .tit p {font-size: 1.5vw;}
+    .strengths .inner .con {margin-top: -8.2vw;}
+    .strengths .inner .con .lineBox {width: 78.5vw;}
+    .strengths .inner .con ul li img {width: 50px; height: 50px;}
+    .strengths .inner .con ul li:nth-child(1) {right: 3%; top: 4%;}
+    .strengths .inner .con ul li:nth-child(2) {top: 20%; left: 1%;}
+    .strengths .inner .con ul li:nth-child(3) {top: 36%;}
+    .strengths .inner .con ul li:nth-child(4) {left: 0%; bottom: 31%;}
+    .strengths .inner .con ul li:nth-child(5) {right: 2%; bottom: 14%;}
+    .skills .inner {width: 90%;}
+    .skills .inner .tit h2 {font-size: 8.7vw;}
+    .skills .inner .tit .subTxt p:nth-child(2) {font-size: 2vw;}
+    .skills .inner >.tit::after {left: 35.4vw; width: 50px;}
+    .skills .inner .con {display: block;}
+    .skills .inner .con li:nth-child(1) {margin-left: 0;}
+    .skills .inner .con li:nth-child(5) {margin-left: 0;}
+    .slogan .inner {width: 90%; padding-left: 9.9vw;}
+    .slogan .inner p {font-size: 14px;}
+    .slogan .inner .textBox {font-size: 8.3vw;}
+    .slogan .inner .textBox ul li:nth-child(4) span {width: 21.7vw; height: 9.5vw;}
+    .works .inner {width: 90%;}
+    .works .inner .tit h2 {font-size: 6.7vw;}
+    .works .inner .tit p {font-size: 1.5vw;}
+    .works .inner .tit h2 span::after {width: 62px;}
+    .works .inner .con .project li:nth-child(2) .txtBox {right: 0%; top: 0%;}
+    .works .inner .con .clonecoding .workList {display: block;}
+    .works .inner .con .clonecoding .workList li a .imgBox {width: 47.3vw; height: 61.5vw;}
+    .works .inner .con .clonecoding .workList li {margin-bottom: 10.8vw;}
+    .works .inner .con .clonecoding .workList li a .txtBox h4 {font-size: 3.8vw;}
+    .works .inner .con .clonecoding .workList li a .txtBox .info {display: block; font-size: 2vw;}
+    .works .inner .con .clonecoding .workList li:nth-child(2n) { margin-top: 0;}
+    .works .inner .con .clonecoding .workList li:nth-child(5) {margin-bottom: 10.8vw;}
+    .works .inner .viewmore2 {bottom: -1%;}
+    .contact .inner {width: 90%;}
+}
+
+
+
+
+
+

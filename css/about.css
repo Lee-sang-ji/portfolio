@@ -1,0 +1,253 @@
+@charset "utf-8";
+/* 구글폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+/* reset */
+* {margin: 0;padding: 0; box-sizing: border-box;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+/* 영어폰트 */
+.en {font-family: 'Etoile';}
+.en2 {font-family: 'Montserrat', sans-serif;}
+
+/* layout */
+body {font-family: 'Noto Sans', sans-serif; letter-spacing: -1px; cursor: url(../img/cursor.png),auto;}
+.wrap {background: #1C1C1C; margin: 0 auto; overflow: hidden; color: #fff; font-weight: 300; font-size: 16px;}
+
+/* header */
+header {width: 100%}
+header .inner {width: 1600px; display: flex; justify-content: space-between; height: 120px;  margin: 0 auto; padding: 36px 0; box-sizing: border-box;  align-items: center; }
+header .inner .logo_house {width: 86px; height: 49px; display: block; }
+header .inner .logo_house img {width: 100%;}
+header .inner .gnb {font-size: 20px; font-weight: 400;}
+header .inner .gnb ul {display: flex; justify-content: space-between;}
+header .inner .gnb ul li {margin-right: 60px;} 
+header .inner .gnb ul li:last-child {margin-right: 0;}
+
+/* gnb hover효과 */
+header .inner .gnb ul li a .char {display: inline-block; position: relative; color: transparent; overflow: hidden;}
+header .gnb ul li a .char::before, header .gnb ul li a .char::after {position: absolute; left: 0; top: 0;  color: #fff; content: attr(data-char); transition: transform 0.35s; transition-delay: calc(30ms * var(--char-index));}
+header .gnb ul li a .char::before {transform: translateY(100%);}
+
+/* hover */
+header .gnb ul li a:hover .char::before {transform: translateY(0%); color: #F56408; opacity: 0.6;}
+header .gnb ul li a:hover .char::after {transform: translateY(-100%);}
+
+
+/* section_visual */
+.visual2 {width: 100%; height: 100vh; position: relative; }
+.visual2 h2 {font-size: 200px; text-align: center; font-weight: normal; z-index: -1;}
+.visual2 h2 span {font-style: italic;}
+
+.visual2 .imgBox {display: flex; justify-content: space-between;  }
+.visual2 .imgBox li {width: 530px; height: 610px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.visual2 .imgBox li img {width: 100%; }
+.visual2 .imgBox li.img1 {  transform: translate(-50%,-50%) rotate(-12deg);}
+.visual2 .imgBox li.img2 {  transform: translate(-50%,-50%) rotate(15deg);}
+.visual2 .imgBox li.img3 {  transform: translate(-50%,-50%) rotate(-15deg);}
+.visual2 .imgBox li.img4 {  transform: translate(-50%,-50%) rotate(10deg);}
+
+/* scrolldown */
+.visual2 .scroll {position: absolute; left: 0; bottom: 30%; font-size: 17px; transform: rotate(90deg);}
+.visual2 .scroll:before {content: ''; position: absolute; background: #fff; width: 200px; height: 1px; left: 0; top: 23px;  animation: lineAni 2s infinite;}
+/* scroll animation */
+@keyframes lineAni {
+    0% {width: 0%;}
+    100% {width: 200px;}
+}
+
+
+/* section_me */
+.me {width: 100%; }
+.me .inner {width: 1600px; margin: 0 auto; position: relative;}
+
+.me .inner h3 {font-size: 130px; font-weight: normal; line-height: 1;  position: absolute; top: 11%; left: 13%;}
+.me .inner h3 span {font-size: 150px; display: block; }
+.me .inner h3 span.en {padding-left: 140px; box-sizing: border-box;}
+.me .inner h3 span.color {color: #F56408; padding-left: 347px; box-sizing: border-box;}
+
+.me .inner .con {display: flex; justify-content: space-between; padding-top: 25%; box-sizing: border-box;}
+.me .inner .con .leftBox {padding: 25% 0 0 2%; box-sizing: border-box;}
+.me .inner .con .leftBox >li {margin-bottom: 80px;}
+.me .inner .con .leftBox >li:nth-child(1) {margin-bottom: 30px;}
+.me .inner .con .leftBox li .tit {font-size: 40px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; position: relative;}
+.me .inner .con .leftBox li .sub {font-size: 20px;}
+.me .inner .con .leftBox li:nth-child(2) .sub ul {display: flex; flex-wrap: wrap; width: 500px;}
+.me .inner .con .leftBox li:nth-child(2) .sub ul li {margin-right: 5px; width: 25%; margin-bottom: 20px;}
+.me .inner .con .leftBox li:nth-child(3) .sub ul li {margin-bottom: 20px;}
+.me .inner .con .leftBox li:nth-child(4) .sub .moto {font-size: 30px; margin-bottom: 10px; font-style: italic;}
+.me .inner .con .leftBox li:nth-child(4) .sub .txt {font-size: 20px;}
+.me .inner .con .leftBox li .tit::before {content: '';position: absolute; top: 40%; left: -6%; width: 10px; height: 10px; background: #F56408; border-radius: 100%; animation: dot 1.5s infinite;}
+.me .inner .con .leftBox li:nth-child(1) .tit::after {content: ''; position: absolute; left: -5%; top: 57%; width: 1px; height: 840px; background: #F56408;}
+
+.me .inner .con .rightBox .txtBox {margin-top: 54px;}
+.me .inner .con .rightBox .txtBox .tit {font-size: 40px; font-weight: 400; margin-bottom: 40px;}
+.me .inner .con .rightBox .txtBox .tit .color {color: #F56408;}
+.me .inner .con .rightBox .txtBox .sub {font-size: 20px;}
+
+/* animation */
+@keyframes textAni {
+    0% {opacity: 0;}
+    30% {opacity: 0; transform: translate3d(0,-90px,0) skewY(-10deg); transform-origin:top left;}
+}
+.me.motion .inner h3 {animation-name:textAni ; animation-duration: 1.5s;}
+.me .inner .con .rightBox .txtBox.motion .tit .char { animation: textAni 2s both; animation-delay: calc(0.08 * var(--char-index));}
+.me .inner .con .rightBox .txtBox.motion .sub .char {animation: textAni 2.5s both; animation-delay: calc(0.08 * var(--char-index));}
+
+@keyframes textAni2 {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+}
+.me .inner .con.motion .leftBox li:nth-child(1) {animation-name:textAni2 ; animation-duration: 3s;} 
+.me .inner .con.motion .leftBox li:nth-child(2) {animation-name:textAni2 ; animation-duration: 4s;} 
+.me .inner .con.motion .leftBox li:nth-child(3) {animation-name:textAni2 ; animation-duration: 5s;} 
+.me .inner .con.motion .leftBox li:nth-child(4) {animation-name:textAni2 ; animation-duration: 6s;} 
+
+@keyframes dot {
+    100% {opacity: 0; transform: scale(1.5); opacity: 0.7;}
+}
+
+@keyframes imgAni2 {
+    0% {transform: translateY(50px);}
+}
+.me .inner .con.motion .rightBox .imgBox  {animation-name: imgAni2; animation-duration: 1s;}
+
+
+
+
+/* section_history */
+.history {width: 100%; margin-top: 200px;}
+.history .titBox {margin:0 0 170px 160px}
+.history .titBox h2 {font-size: 90px; font-weight: normal; line-height: 1; margin-bottom: 5px;}
+.history .titBox h2 span {display: block; font-style: italic; padding-left: 20%; box-sizing: border-box;}
+.history .titBox .sub {font-size: 20px;  padding-left: 20%; box-sizing: border-box;}
+
+.history .con {display: flex; flex-wrap: wrap; justify-content: space-between;}
+.history .con li:nth-child(2n) {margin-top: 300px;}
+.history .con li:nth-child(2) {margin-right: 160px;}
+.history .con li:nth-child(3) {margin-left: 160px;}
+.history .con li .year {font-size: 49px; color: #F56408; font-weight: 400; margin-bottom: 20px; position: relative; text-align: right;}
+.history .con li .year::before {content: ''; position: absolute; top: 50%; left: 0; width: 509px; height: 1px; background: #fff; }
+.history .con li:nth-child(2) .year::before {content: ''; width: 456px; height: 1px;}
+.history .con li:nth-child(3) .year::before {content: ''; width: 456px; height: 1px;}
+.history .con li .txtBox .tit {font-size: 35px; text-transform: uppercase; margin-top: 50px; font-weight: 400;}
+.history .con li .txtBox .sub {margin-top: 10px; font-size: 20px;}
+
+/* animation */
+.history.motion .titBox {animation-name:textAni ; animation-duration: 1.5s;}
+.history .con li.motion {animation-name: textAni2;}
+.history .con li:nth-child(1).motion {animation-duration: 1.5s;}
+.history .con li:nth-child(2).motion {animation-duration: 1.5s;}
+.history .con li:nth-child(3).motion {animation-duration: 1.5s;}
+.history .con li:nth-child(4).motion {animation-duration: 1.5s;}
+.history .con li:nth-child(5).motion {animation-duration: 1.5s;}
+
+/* section_strength */
+.strength {width: 100%; margin-top: 400px;}
+.strength .inner {width: 1600px;  margin: 0 auto;}
+
+.strength .inner .titBox h2 {font-size: 60px; font-weight: normal; line-height: 1; margin-bottom: 5px;}
+.strength .inner .titBox h2 span {display: block; font-style: italic; padding-left: 4%; box-sizing: border-box;}
+.strength .inner .titBox .sub {padding-left: 4%; box-sizing: border-box;}
+
+.strength .inner .con {margin-top: 240px; text-align: center;}
+.strength .inner .con li {margin-bottom: 150px;  position: relative;  width: 100%; }
+.strength .inner .con li .sticker {opacity: 0; ease-in-out;}
+.strength .inner .con li .sticker span {display: inline-block; font-size: 40px; font-weight: 400;  padding: 20px 30px; box-sizing: border-box; border: 1px solid #fff; border-radius: 50px; position: absolute; left: 12%; top: -24%; transform: rotate(-13deg);}
+.strength .inner .con li .sticker .img {width: 100px; height: 100px; position: absolute; right: 35%; top: -40%;}
+.strength .inner .con li .sticker .img img {width: 100%;}
+.strength .inner .con li .tit {font-size: 90px; letter-spacing: -2px; font-weight: 400; margin-bottom: 15px; }
+.strength .inner .con li .sub {font-size: 25px; opacity: 0; font-weight: 500;}
+
+/* hover효과 */
+.strength .inner .con li:hover .sticker {opacity: 1; transition: all 0.5s ease-in-out; }
+.strength .inner .con li:hover .tit { cursor: pointer; transition: all 0.5s ease-in-out; color: #FF9049;}
+.strength .inner .con li:hover .sub {opacity: 1; transition: all 0.5s ease-in-out; } 
+
+/* animation */
+.strength.motion .inner .titBox {animation-name:textAni ; animation-duration: 1.5s;}
+
+
+
+/* section_interesting */
+.interesting {width: 100%; height: 100vh;  display: flex; justify-content: space-between; overflow: hidden; padding: 300px 0; box-sizing: border-box;}
+.interesting >.tit {width: 25%; text-align: right;}
+.interesting .tit h2 {font-size: 90px; font-weight: normal; line-height: 1; margin-bottom: 15px;}
+.interesting .tit h2 span {display: block; font-style: italic;}
+.interesting .tit .sub {font-size: 20px;}
+
+.interesting .list {width: 65%; display: flex; flex-wrap: nowrap; color: #000; font-weight: 400;  margin-top: -5%;}
+.interesting .list li {width: 380px; height: 470px; background: #fff; border-radius: 45px; padding: 65px 30px; box-sizing: border-box; flex-shrink: 0; overflow: hidden; margin-right: 60px; text-align: center;}
+.interesting .list li .tit {width: 250px; font-size: 50px; padding: 15px auto; box-sizing: border-box; border-bottom: 1px solid #000; margin: 0 auto 30px;}
+.interesting .list li .img {margin-bottom: 30px;}
+.interesting .list li.a {transform: rotate(-10deg);}
+.interesting .list li.b {transform: rotate(10deg);}
+
+
+
+/* section_skills */
+.skills {width: 100%; margin:500px 0;}
+.skills .inner {width: 1600px;  margin: 0 auto;}
+
+.skills .inner >.tit {line-height: 0.9; display: flex; position: relative; margin-bottom: 100px;}
+.skills .inner >.tit::after {content: ''; position: absolute; left: 430px; bottom: 3px; width: 184px; height: 1px; background: #fff; }
+.skills .inner .tit h2 {font-size: 100px; font-weight: 300; margin-right: 259px;}
+.skills .inner .tit h2 span {display: block; font-size: 80px; font-style: italic;}
+.skills .inner .tit .subTxt {position: relative;  margin-top: 30px;}
+.skills .inner .tit .subTxt p:nth-child(1) {font-size: 130px; color: #F56408; font-weight: 600; margin-bottom: 5px;}
+.skills .inner .tit .subTxt p:nth-child(2) {font-size: 17px;}
+.skills .inner .tit .subTxt span {font-size: 65px; font-weight: 600; position: absolute; top: -14%; left: -6%;}
+
+.skills .inner .con {display: flex; flex-wrap: wrap-reverse; justify-content: space-between;} 
+.skills .inner .con li {background: url(../img/skills/bg.png) no-repeat; width: 391px; height: 410px; margin-bottom: 50px; padding: 60px 20px; box-sizing: border-box; text-align: center; overflow: hidden;}
+.skills .inner .con li:nth-child(1) {margin-left: 36px;}
+.skills .inner .con li:nth-child(5) {margin-left: 427px;}
+.skills .inner .con li .imgBox {width: 100px; height: 100px;  margin: 0 auto 20px;}
+.skills .inner .con li .imgBox img {width: 100%;}
+.skills .inner .con li .txtBox .tit {font-size: 35px; font-weight: 400; margin-bottom: 40px; position: relative;}
+.skills .inner .con li .txtBox .tit::after {content: ''; position: absolute; left: 10px; bottom: -15px; width: 300px; height: 1px; background: #fff;}
+.skills .inner .con li .txtBox .txt {text-align: left; margin-left: 10px;}
+.skills .inner .con li .txtBox .star {font-size: 25px; font-weight: 600; margin-top: 5px; text-align: left; margin-left: 10px;}
+.skills .inner .con li .txtBox .star span {color: #979292;}
+
+.skills .inner .con li:hover {background: #fff; width: 372px; height: 391px; color: #000; transition: all 0.8s; cursor: pointer;}
+.skills .inner .con li:hover .txtBox .tit::after {background: #000;}
+
+/* animation */
+.skills.motion .inner .tit h2 {animation-name: textAni; animation-duration: 1s;}
+.skills.motion .inner .tit p {animation-name: textAni2; animation-duration: 1.5s; }
+
+
+/* footer_contact */
+.contact {width: 100%;}
+.contact .inner {width: 1600px; margin: 0 auto;}
+
+.contact .inner .topBox {padding-left: 361px; box-sizing: border-box;}
+.contact .inner .topBox a {display: block;}
+.contact .inner .topBox a .txt {display: inline-block; position: relative; margin-bottom: 20px; margin-left: -50px; font-size: 20px;}
+.contact .inner .topBox a .txt::after {content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 300px; height: 300px; border: 1px solid; border-radius: 100%; }
+.contact .inner .topBox a .txt span {display: inline-block; width: 30px; height: 1px; background: #fff; position: absolute; left: 0; bottom: -47px;}
+.contact .inner .topBox a .txt span::after {content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 1px; height: 30px; background: #fff;}
+.contact .inner .topBox a .videoWrap {width: 1239px; height: 435px; overflow: hidden;}
+.contact .inner .topBox a .videoWrap video {width: 100%;}
+
+.contact .inner .bottomBox {display: flex; justify-content: space-between; position: relative; margin-bottom: 20px;}
+.contact .inner .bottomBox h2 {font-size: 240px; font-weight: normal; line-height: 0.8; margin-top: -139px;}
+.contact .inner .bottomBox .arrow {width: 218px; height: 170px;  position: absolute; bottom: 5%; right: 30%;}
+.contact .inner .bottomBox .arrow img {width: 100%;}
+.contact .inner .bottomBox .sns { display: inline-block; position: absolute; bottom: 0; right: 10%;}
+.contact .inner .bottomBox .sns li {font-size: 20px; margin-bottom: 20px; } 
+.contact .inner .bottomBox .sns li img {margin-right: 20px;}
+
+.contact >span {width: 100%; height: 50px; background: #F56408; display: block;}
+
+
+
